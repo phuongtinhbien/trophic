@@ -1,0 +1,41 @@
+<style>
+.shadow{
+    border-color:transparent; border-radius:15px; box-shadow: 0px 1px 10px rgba(0, 0, 0, .25);
+}
+</style>
+
+
+<div class="card shadow mt-2">
+    <div class="d-flex flex-row">
+        <div class="p-2 w-50 p-3">
+        <div class="d-flex align-items-center">
+                <div class="custom-control custom-checkbox">
+                        <input type="checkbox" name= "checked[]" onchange="update()"checked class="custom-control-input" id="l<%-data.id%>" value='<%-JSON.stringify(data)%>'>
+                        <label class="custom-control-label ml-1" for="l<%-data._id%>">
+                                <span class="card-title"  style="text-transform:uppercase; font-size:14px"><strong><%-data.name%></strong></span>
+                        </label>
+                </div>
+            </div>
+            
+
+        </div>
+        
+        <div class="p-2 w-75 p-3">
+                <div class="d-flex align-items-center">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" style="border-color: transparent; background-color: #C8E6C9 ;color:black;border-radius: 25px 0px 0px 25px">KL</span>
+                        </div>
+                        <input type="number" class="form-control text-center" style=" text-align: center; border-color: #C8E6C9; background-color: white ;color:black" id="<%-data._id%>" oninput="update()" value="100" min="0" max="5000" step="5"  aria-label="Amount (to the nearest dollar)">
+                        <div class="input-group-append">
+                          <span class="input-group-text" style="border-color: transparent; background-color: #C8E6C9 ;color:black;border-radius: 0px 25px 25px 0px">(g)</span>
+                        </div>
+                      </div>
+                </div>
+        </div>
+        <div class="p-2 w-25 p-3">
+        <a class="btn btn-success" href="/food/<%-data._id%>" style="border-radius: 25px 25px 25px 25px">Chi  tiết</a>
+    </div>
+    </div>
+</div>
+

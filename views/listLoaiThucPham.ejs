@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="20x20" href="images/logo.jpg">
+    <title>Admin Dashboard Trophic</title>
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
+    <link href="/css_bootstrap/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="/css/helper.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/icons/themify-icons.css" rel="stylesheet">
+    <link href="/icons/simple-line-icons.css" rel="stylesheet">
+    <link href="/icons/materialdesignicons.min.css" rel="stylesheet">
+    <link href="/icons/linea.css" rel="stylesheet">
+    <link href="/icons/font-awesome.min.css" rel="stylesheet">
+    <link href="/icons/flag-icon.min.css" rel="stylesheet">
+</head>
+
+<body class="fix-header fix-sidebar">
+    <!-- Preloader - style you can find in spinners.css -->
+    <div class="preloader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
+    </div>
+    <!-- Main wrapper  -->
+    <div id="main-wrapper">
+        <!-- header header  -->
+        <div class="header">
+            <nav class="navbar top-navbar navbar-expand-md navbar-light">
+                <!-- Logo -->
+                <div class="navbar-header">
+                    <div class="navbar-brand">
+                        <!-- Logo icon -->
+                        <a class="navbar-brand" href="/dashboard">
+                            <img src="images/logo_text.jpg" alt="homepage" width="230px" height="50px">
+                            <br>
+                        </a>
+                        <!--End Logo icon -->
+                        <!-- Logo text -->
+                    </div>
+                </div>
+                <!-- End Logo -->
+                <div class="navbar-collapse">
+                    <!-- User profile -->
+                    <ul class="navbar-nav my-lg-0">
+                        <!-- Profile -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="/images_users/admin.png" alt="ADMINISTRATOR" class="profile-pic" style="margin-left: 1000px;" />
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right animated zoomIn">
+                                <ul class="dropdown-user">
+                                    <li>
+                                        <a href="/logout">
+                                            <i class="fa fa-power-off"></i> Logout</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!-- End header header -->
+        <!-- Left Sidebar  -->
+        <div class="left-sidebar">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <li class="nav-devider"></li>
+                        <li class="nav-label">Home</li>
+                        <li>
+                            <a href="/dashboard" aria-expanded="false">
+                                <i class="fa fa-tachometer"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="nav-label">Features</li>
+                        <li>
+                            <a class="has-arrow  " href="#" aria-expanded="false">
+                                <i class="fa fa-table"></i>
+                                <span class="hide-menu">Tables</span>
+                                <span class="label label-rouded label-danger pull-right">6</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li>
+                                    <a href="admin_user">Tài khoản người dùng</a>
+                                </li>
+                                <li>
+                                    <a href="donVi">Đơn vị</a>
+                                </li>
+                                <li>
+                                    <a href="admin_food">Thực phẩm</a>
+                                </li>
+                                <li>
+                                    <a href="typeFood">Loại thực phẩm</a>
+                                </li>
+                                <li>
+                                    <a href="/admin_vitamin">Vitamin</a>
+                                </li>
+                                <li>
+                                    <a href="/admin_khoangChat">Khoáng chất</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+        </div>
+        <!-- End Left Sidebar  -->
+        <!-- Page wrapper  -->
+        <div class="page-wrapper">
+            <!-- Bread crumb -->
+            <div class="row page-titles">
+                <div class="col-md-5 align-self-center">
+                    <h3 class="text-primary">Dashboard</h3>
+                </div>
+                <div class="col-md-7 align-self-center">
+                    <ol class="breadcrumb">
+                        <li>
+                            <a href="#">Home /</a>
+                        </li>
+                        <li>
+                            <a href="#">Tables /</a>
+                        </li>
+                        <li>Loại thực phẩm</li>
+                    </ol>
+                </div>
+            </div>
+            <!-- End Bread crumb -->
+            <!-- Container fluid  -->
+
+            <div class="container-fluid">
+                <!-- Start Page Content -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card-body">
+                            <div class="navbar-collapse">
+                                <div class="row page-titles">
+                                    <ul class="navbar-nav mr-auto mt-md-0">
+                                        <h3 class="card-title">BẢNG LOẠI THỰC PHẨM</h3>
+                                    </ul>
+                                    <!--Start add-->
+                                    <ul class="navbar-nav my-lg-0">
+                                        <form action="/addTypeFood" method="POST" role="form" enctype="multipart/form-data">
+                                            <a class="glyphicon glyphicon-add" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin: 30px">
+                                                <img src="/icons/add.png" alt="ico" width="50" height="50" />
+                                            </a>
+                                            <div class="dropdown-menu animated zoomIn" style="width: 600px;">
+                                                <ul class="mega-dropdown-menu row">
+                                                    <div class="container-fluid" style="width:600px; height:600px; overflow: auto;">
+                                                        <!-- Start Page Content -->
+                                                        <div class="row">
+                                                            <div class="col-lg-12">
+                                                                <div class="card card-outline-primary">
+                                                                    <div class="card-header">
+                                                                        <h4 class="m-b-0 text-white">
+                                                                            <center>TẠO LOẠI THỰC PHẨM</center>
+                                                                        </h4>
+                                                                    </div>
+                                                                    <div class="card-body">
+                                                                        <form action="#">
+                                                                            <div class="form-body">
+                                                                                <div class="row p-t-20">
+                                                                                    <div class="col-md-12">
+                                                                                        <label class="control-label" style="color: blue" ;>Tên loại thực phẩm</label>
+                                                                                        <input type="text" id="name" name="name" class="form-control" placeholder="Chất béo">
+                                                                                        <small class="form-control-feedback"> Tạo thêm loại thực phẩm chưa có trong
+                                                                                            CSDL.
+                                                                                        </small>
+                                                                                    </div>
+                                                                                    <div class="col-md-12">
+                                                                                        <label class="control-label" style="color: blue;">Ảnh đại diện</label>
+                                                                                        <div class="custom-file">
+                                                                                            <input type="file" name="img" onchange="readURLimg(this)" class="custom-file-input" id="customFile">
+                                                                                            <label class="custom-file-label" for="customFile">Chọn ảnh</label>
+                                                                                        </div>
+                                                                                        <img id="img" src="#" alt="Chọn ảnh" />
+                                                                                        <script>
+                                                                                            function readURLimg(input) {
+                                                                                                if (input.files &&
+                                                                                                    input.files[0]) {
+                                                                                                    var reader = new FileReader();
+                                                                                                    reader.onload =
+                                                                                                        function (e) {
+                                                                                                            $('#img')
+                                                                                                                .attr(
+                                                                                                                    'src',
+                                                                                                                    e.target
+                                                                                                                    .result
+                                                                                                                )
+                                                                                                                .width(
+                                                                                                                    60)
+                                                                                                                .height(
+                                                                                                                    80);
+                                                                                                        };
+                                                                                                    reader.readAsDataURL(
+                                                                                                        input.files[
+                                                                                                            0]);
+                                                                                                }
+                                                                                            }
+                                                                                        </script>
+                                                                                    </div>
+                                                                                    <div class="col-md-12">
+                                                                                        <label class="control-label" style="color: blue;">Từ khóa</label>
+                                                                                        <input type="text" id="tukhoa" name="key" class="form-control" placeholder="">
+                                                                                        <small class="form-control-feedback"> chatBeo </small>
+                                                                                    </div>
+                                                                                    <div class="col-md-12">
+                                                                                        <label class="control-label" style="color: blue;">Ảnh nền</label>
+                                                                                        <div class="custom-file">
+                                                                                            <input type="file" name="bg" onchange="readURlbg(this)" class="custom-file-input" id="customFile1">
+                                                                                            <label class="custom-file-label" for="customFile1">Chọn ảnh</label>
+                                                                                        </div>
+                                                                                        <img id="bg" src="#" alt="Chọn ảnh" />
+                                                                                        <script>
+                                                                                            function readURlbg(input) {
+                                                                                                if (input.files &&
+                                                                                                    input.files[0]) {
+                                                                                                    var reader = new FileReader();
+                                                                                                    reader.onload =
+                                                                                                        function (e) {
+                                                                                                            $('#bg')
+                                                                                                                .attr(
+                                                                                                                    'src',
+                                                                                                                    e.target
+                                                                                                                    .result
+                                                                                                                )
+                                                                                                                .width(
+                                                                                                                    60)
+                                                                                                                .height(
+                                                                                                                    80);
+                                                                                                        };
+                                                                                                    reader.readAsDataURL(
+                                                                                                        input.files[
+                                                                                                            0]);
+                                                                                                }
+                                                                                            }
+                                                                                        </script>
+                                                                                    </div>
+                                                                                    <div class="col-md-12">
+                                                                                        <label class="control-label" style="color: blue;">Giới thiệu</label>
+                                                                                        <input type="text" id="gioithieu" name="intro" class="form-control" placeholder="">
+                                                                                        <small class="form-control-feedback"> Một số CHẤT BÉO và một số LOẠI DẦU
+                                                                                            khi sử dụng trong chế độ ăn uống
+                                                                                            hàng ngày sẽ rất tốt cho sức
+                                                                                            khoẻ. </small>
+                                                                                    </div>
+                                                                                    <div class="col-md-12">
+                                                                                        <div class="form-group">
+                                                                                            <label for="exampleFormControlTextarea1" style="color: blue;">Mô tả chi tiết</label>
+                                                                                            <textarea class="form-control" id="exampleFormControlTextarea1" name="content" style="height: 100px"></textarea>
+                                                                                            <small class="form-control-feedback">Chất béo (Lipid) là một nhóm
+                                                                                                chất dinh dưỡng chính trong
+                                                                                                khẩu phần thức ăn hàng ngày.
+                                                                                                Lipid được coi là cần thiết
+                                                                                                cho sự sống, trước hết bởi
+                                                                                                đó là nguồn cung cấp năng
+                                                                                                lượng quan trọng (1 gam lipid
+                                                                                                khi đốt cháy trong cơ thể
+                                                                                                có thể cho 9 kcal - bằng
+                                                                                                hơn 2 lần gluxit hoặc protein),
+                                                                                                do khả năng sinh nhiệt của
+                                                                                                lipid là tuỳ thuộc lượng
+                                                                                                oxy chứa trong phân tử chất
+                                                                                                béo... </small>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                    </div>
+                                                                    <div class="form-actions">
+                                                                        <button type="submit" class="btn btn-success">
+                                                                            <i class="fa fa-check"></i> Thêm</button>
+                                                                        <button type="button" class="btn btn-inverse">Hủy</button>
+                                                                    </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- End PAge Content -->
+                                                </ul>
+                                            </div>
+                                        </form>
+                                        </li>
+                                    </ul>
+                                    <!--End add-->
+                                </div>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                    <h6 class="card-subtitle">Xuất dữ liệu: Copy, CSV, Excel, PDF & Print</h6>
+                    <div class="table-responsive">
+                        <div id="example23_wrapper" class="dataTables_wrapper">
+                            <table id="example23" class=" table table-bordered" style="font-size:12px;color:black; line-height: normal; text-align: center;">
+                                <thead>
+                                    <tr role="row" style="background-color: #d9f3e9;color: white;">
+                                        <th>STT</th>
+                                        <th style="width: 120px;">PHÂN LOẠI</th>
+                                        <th>ẢNH ĐẠI DIỆN</th>
+                                        <th>ẢNH NỀN</th>
+                                        <th style="width: 150px;">GIỚI THIỆU</th>
+                                        <th style="padding-left: 3.8em;">MÔ TẢ CHI TIẾT TỪNG LOẠI THỰC PHẨM</th>
+                                        <th>SỬA</th>
+                                        <th>XÓA</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% for(var i=0; i<len; i++) {%>
+                                        <tr>
+                                            <th scope="row">
+                                                <%-i+1%>
+                                            </th>
+                                            <td>
+                                                <%-data[i].name%>
+                                            </td>
+                                            <td>
+                                                <img src="<%-data[i].img%>" alt="avt" width="100" height="100">
+                                            </td>
+                                            <td>
+                                                <img src="<%-data[i].bg%>" alt="bg" width="100" height="100">
+                                            </td>
+                                            <td>
+                                                <%-data[i].intro%>
+                                            </td>
+                                            <td>
+                                                <%-data[i].content%>
+                                            </td>
+                                            <td>
+                                                <!--Start edit-->
+                                                <form action="/typeFood/<%-data[i]._id%>" method="POST" role="form" enctype="multipart/form-data">
+                                                    <a class="glyphicon glyphicon-add" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <button class="btn btn-primary btn-xs" data-title="SỬA" data-toggle="modal" data-target="#sua">
+                                                            <span class="glyphicon glyphicon-pencil">SỬA</span>
+                                                        </button>
+                                                    </a>
+                                                    <div class="dropdown-menu animated zoomIn" style="width: 600px;">
+                                                        <ul class="mega-dropdown-menu row">
+                                                            <div class="container-fluid" style="width:600px; height:600px; overflow: auto;">
+                                                                <!-- Start Page Content -->
+                                                                <div class="row">
+                                                                    <div class="col-lg-12">
+                                                                        <div class="card card-outline-primary">
+                                                                            <div class="card-header">
+                                                                                <h4 class="m-b-0 text-white">
+                                                                                    <center>CHỈNH SỬA THÔNG TIN</center>
+                                                                                </h4>
+                                                                            </div>
+                                                                            <div class="card-body">
+                                                                                <form action="#">
+                                                                                    <div class="form-body">
+                                                                                        <div class="row p-t-20">
+                                                                                            <div class="col-md-12">
+                                                                                                <label class="control-label" style="color: blue" ;>Tên loại thực phẩm</label>
+                                                                                                <input type="text" id="name" name="name" class="form-control" value="<%-data[i].name%>" placeholder="">
+                                                                                            </div>
+                                                                                            <div class="col-md-12">
+                                                                                                <label class="control-label" style="color: blue;">Ảnh đại diện</label>
+                                                                                                <div class="custom-file">
+                                                                                                    <input type="file" name="img" onchange="readURLimg(this)" class="custom-file-input" value="<%-data[i].img%>" id="customFile">
+                                                                                                    <label class="custom-file-label" for="customFile">Chọn ảnh</label>
+                                                                                                </div>
+                                                                                                <img id="img<%-i%>" src="<%-data[i].bg%>" alt="avatar" width="100px" height="100px" />
+                                                                                                <script>
+                                                                                                    function readURLimg(
+                                                                                                        input) {
+                                                                                                        if (input.files &&
+                                                                                                            input.files[
+                                                                                                                0]) {
+                                                                                                            var reader =
+                                                                                                                new FileReader();
+                                                                                                            reader.onload =
+                                                                                                                function (
+                                                                                                                    e) {
+                                                                                                                    $(
+                                                                                                                            '#img<%-i%>'
+                                                                                                                        )
+                                                                                                                        .attr(
+                                                                                                                            'src',
+                                                                                                                            e
+                                                                                                                            .target
+                                                                                                                            .result
+                                                                                                                        )
+                                                                                                                        .width(
+                                                                                                                            60
+                                                                                                                        )
+                                                                                                                        .height(
+                                                                                                                            80
+                                                                                                                        );
+                                                                                                                };
+                                                                                                            reader.readAsDataURL(
+                                                                                                                input
+                                                                                                                .files[
+                                                                                                                    0
+                                                                                                                ]);
+                                                                                                        }
+                                                                                                    }
+                                                                                                </script>
+                                                                                            </div>
+                                                                                            <div class="col-md-12">
+                                                                                                <label class="control-label" style="color: blue;">Từ khóa</label>
+                                                                                                <input type="text" id="tukhoa" name="key" class="form-control" placeholder="" value="<%-data[i].key%>">
+                                                                                            </div>
+                                                                                            <div class="col-md-12">
+                                                                                                <label class="control-label" style="color: blue;">Ảnh nền</label>
+                                                                                                <div class="custom-file">
+                                                                                                    <input type="file" name="bg" onchange="readURlbg(this)" value="<%-data[i].bg%>" class="custom-file-input" id="customFile1">
+                                                                                                    <label class="custom-file-label" for="customFile1">Chọn ảnh</label>
+                                                                                                </div>
+                                                                                                <img id="bg<%-i%>" src="<%-data[i].bg%>" alt="background" width="100px" height="100px" />
+                                                                                                <script>
+                                                                                                    function readURlbg(
+                                                                                                        input) {
+                                                                                                        if (input.files &&
+                                                                                                            input.files[
+                                                                                                                0]) {
+                                                                                                            var reader =
+                                                                                                                new FileReader();
+                                                                                                            reader.onload =
+                                                                                                                function (
+                                                                                                                    e) {
+                                                                                                                    $(
+                                                                                                                            '#bg<%-i%>'
+                                                                                                                        )
+                                                                                                                        .attr(
+                                                                                                                            'src',
+                                                                                                                            e
+                                                                                                                            .target
+                                                                                                                            .result
+                                                                                                                        )
+                                                                                                                        .width(
+                                                                                                                            60
+                                                                                                                        )
+                                                                                                                        .height(
+                                                                                                                            80
+                                                                                                                        );
+                                                                                                                };
+                                                                                                            reader.readAsDataURL(
+                                                                                                                input
+                                                                                                                .files[
+                                                                                                                    0
+                                                                                                                ]);
+                                                                                                        }
+                                                                                                    }
+                                                                                                </script>
+                                                                                            </div>
+                                                                                            <div class="col-md-12">
+                                                                                                <label class="control-label" style="color: blue;">Giới thiệu</label>
+                                                                                                <input type="text" id="gioithieu" name="intro" class="form-control" placeholder="" value="<%-data[i].intro%>">
+                                                                                            </div>
+                                                                                            <div class="col-md-12">
+                                                                                                <div class="form-group">
+                                                                                                    <label for="exampleFormControlTextarea1" style="color: blue;">Mô tả chi tiết</label>
+                                                                                                    <textarea class="form-control" id="exampleFormControlTextarea1" name="content" style="height: 100px" value="<%-data[i].content%>">
+                                                                                                        <%-data[i].content%>
+                                                                                                    </textarea>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                            </div>
+                                                                            <div class="form-actions">
+                                                                                <button type="submit" class="btn btn-success">
+                                                                                    <i class="fa fa-check"></i> Lưu thay đổi</button>
+                                                                                <button type="button" class="btn btn-inverse">Hủy</button>
+                                                                            </div>
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- End PAge Content -->
+                                                        </ul>
+                                                    </div>
+                                                </form>
+                                                <!--End edit-->
+                                            </td>
+                                            <td>
+                                                <!-- Start delete -->
+                                                <a href="/del_typeFood/<%-data[i]._id%>" class="btn btn-danger btn-xs">
+                                                    <span class="glyphicon glyphicon-trash">XÓA</span>
+                                                </a>
+                                                </form>
+                                                <!-- End delete -->
+                                            </td>
+                                        </tr>
+                                        <% } %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End PAge Content -->
+    </div>
+    <!-- End Container fluid  -->
+    <!-- footer -->
+    <footer class="footer"> @onlyForBasicReport</footer>
+    <!-- End footer -->
+    </div>
+    <!-- End Page wrapper  -->
+    </div>
+    <!-- End Wrapper -->
+    <!-- All Jquery -->
+    <script src="/js_jquery/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="/js_jsbt/popper.min.js"></script>
+    <script src="/js_jsbt/bootstrap.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="/js/jquery.slimscroll.js"></script>
+    <!--Menu sidebar -->
+    <script src="/js/sidebarmenu.js"></script>
+    <!--stickey kit -->
+    <script src="/js_sticky/sticky-kit.min.js"></script>
+    <!--Custom JavaScript -->
+    <script src="/js/custom.min.js"></script>
+    <script src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.flash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
+    <script src="/js_datatables/datatables-init.js"></script>
+</body>
+
+</html>

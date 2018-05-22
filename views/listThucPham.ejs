@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="20x20" href="images/logo.jpg">
+    <title>Admin Dashboard Trophic</title>
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
+    <link href="/css_bootstrap/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="/css/helper.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/icons/themify-icons.css" rel="stylesheet">
+    <link href="/icons/simple-line-icons.css" rel="stylesheet">
+    <link href="/icons/materialdesignicons.min.css" rel="stylesheet">
+    <link href="/icons/linea.css" rel="stylesheet">
+    <link href="/icons/font-awesome.min.css" rel="stylesheet">
+    <link href="/icons/flag-icon.min.css" rel="stylesheet">   
+</head>
+<body class="fix-header fix-sidebar">
+    <!-- Preloader - style you can find in spinners.css -->
+    <div class="preloader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
+    </div>
+    <!-- Main wrapper  -->
+    <div id="main-wrapper">
+        <!-- header header  -->
+        <div class="header">
+            <nav class="navbar top-navbar navbar-expand-md navbar-light">
+                <!-- Logo -->
+                <div class="navbar-header">
+                    <div class="navbar-brand">
+                        <!-- Logo icon -->
+                        <a class="navbar-brand" href="/dashboard">
+                            <img src="images/logo_text.jpg" alt="homepage" width="230px" height="50px">
+                            <br>
+                        </a>
+                        <!--End Logo icon -->
+                        <!-- Logo text -->
+                    </div>
+                </div>
+                <!-- End Logo -->
+                <div class="navbar-collapse">
+                    <!-- User profile -->
+                    <ul class="navbar-nav my-lg-0">
+                        <!-- Profile -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="/images_users/admin.png" alt="ADMINISTRATOR" class="profile-pic" style="margin-left: 1000px;" />
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right animated zoomIn">
+                                <ul class="dropdown-user">
+                                    <li>
+                                        <a href="/logout">
+                                            <i class="fa fa-power-off"></i> Logout</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!-- End header header -->
+        <!-- Left Sidebar  -->
+        <div class="left-sidebar">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <li class="nav-devider"></li>
+                        <li class="nav-label">Home</li>
+                        <li>
+                            <a href="/dashboard" aria-expanded="false">
+                                <i class="fa fa-tachometer"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="nav-label">Features</li>
+                        <li>
+                            <a class="has-arrow  " href="#" aria-expanded="false">
+                                <i class="fa fa-table"></i>
+                                <span class="hide-menu">Tables</span>
+                                <span class="label label-rouded label-danger pull-right">6</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li>
+                                    <a href="admin_user">Tài khoản người dùng</a>
+                                </li>
+                                <li>
+                                    <a href="/donVi">Đơn vị</a>
+                                </li>
+                                <li>
+                                    <a href="/admin_food">Thực phẩm</a>
+                                </li>
+                                <li>
+                                    <a href="/typeFood"> Loại thực phẩm</a>
+                                </li>
+                                <li>
+                                    <a href="/admin_vitamin">Vitamin</a>
+                                </li>
+                                <li>
+                                    <a href="/admin_khoangChat">Khoáng chất</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+        </div>
+        <!-- End Left Sidebar  -->
+        <!-- Page wrapper  -->
+        <div class="page-wrapper">
+            <!-- Bread crumb -->
+            <div class="row page-titles">
+                <div class="col-md-5 align-self-center">
+                    <h3 class="text-primary">Dashboard</h3>
+                </div>
+                <div class="col-md-7 align-self-center">
+                    <ol class="breadcrumb">
+                        <li>
+                            <a href="#">Home /</a>
+                        </li>
+                        <li>
+                            <a href="#">Tables /</a>
+                        </li>
+                        <li>Thực phẩm</li>
+                    </ol>
+                </div>
+            </div>
+            <!-- End Bread crumb -->
+            <!-- Container fluid  -->
+            <div class="container-fluid">
+                <!-- Start Page Content -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card-body">
+                            <div class="navbar-collapse">
+                                <div class="row page-titles">
+                                    <ul class="navbar-nav mr-auto mt-md-0">
+                                        <h3 class="card-title">BẢNG THỰC PHẨM</h3>
+                                    </ul>
+                                    <!--Start add-->
+                                    <ul class="navbar-nav my-lg-0">                                        
+                                            <a class="glyphicon glyphicon-add" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin: 30px">
+                                                <img src="/icons/add.png" alt="ico" width="50" height="50" />
+                                            </a>
+                                            <div class="dropdown-menu animated zoomIn" style="width: 600px;">
+                                                <ul class="mega-dropdown-menu row">
+                                                    <div class="container-fluid" style="width:600px; height:600px; overflow: auto;">
+                                                        <!-- Start Page Content -->
+                                                        <div class="row">
+                                                            <div class="col-lg-12">
+                                                                <div class="card card-outline-primary">
+                                                                    <div class="card-header">
+                                                                        <h4 class="m-b-0 text-white">
+                                                                            <center>TẠO THỰC PHẨM</center>
+                                                                        </h4>
+                                                                    </div>
+                                                                    <div class="card-body">
+                                                                            <form action="/admin_food" method="POST" role="form" enctype="multipart/form-data">
+                                                                            <div class="form-body">
+                                                                                <h3 class="card-title m-t-15">
+                                                                                    <center>Thông tin thực phẩm</center>
+                                                                                </h3>
+                                                                                <hr>
+                                                                                <div class="row p-t-20">                                                                                     
+                                                                                    <div class="col-md-6">
+                                                                                        <label class="control-label" style="color: blue;">Tên thực phẩm</label>
+                                                                                        <input type="text" id="name" name="name" class="form-control" placeholder="chuối">
+                                                                                    </div>
+                                                                                    <div class="col-md-6">
+                                                                                        <label class="control-label" style="color: blue;">Tên tiếng anh</label>
+                                                                                        <input type="text" id="en_name" name="en_name" class="form-control" placeholder="banana">
+                                                                                    </div>
+                                                                                    <div class="col-md-6">
+                                                                                        <label class="control-label" style="color: blue;">Loại thực phẩm</label>
+                                                                                        <input type="text" id="namegfg" name="loaiThucPham" class="form-control">
+                                                                                    </div>
+                                                                                    <div class="col-md-6">
+                                                                                        <label class="control-label" style="color: blue;">Ảnh đại diện</label>
+                                                                                        <div class="custom-file">
+                                                                                            <input type="file" name="anh" onchange="readURLanh1(this)" class="custom-file-input" id="customFile">
+                                                                                            <label class="custom-file-label" for="customFile">Chọn ảnh</label>
+                                                                                        </div>
+                                                                                        <img id="anh" src="#" alt="" width="60px" height="60px"/>
+                                                                                        <script>
+                                                                                            function readURLanh1(input) {
+                                                                                                if (input.files &&
+                                                                                                    input.files[0]) {
+                                                                                                    var reader = new FileReader();
+                                                                                                    reader.onload =
+                                                                                                        function (e) {
+                                                                                                            $('#anh')
+                                                                                                                .attr(
+                                                                                                                    'src',
+                                                                                                                    e.target
+                                                                                                                    .result
+                                                                                                                )
+                                                                                                                .width(
+                                                                                                                    60)
+                                                                                                                .height(
+                                                                                                                    80);
+                                                                                                        };
+                                                                                                    reader.readAsDataURL(
+                                                                                                        input.files[
+                                                                                                            0]);
+                                                                                                }
+                                                                                            }
+                                                                                        </script>
+                                                                                    </div>
+                                                                                    <div class="col-md-12">
+                                                                                        <label class="control-label" style="color: blue;">Thông tin thực phẩm</label>
+                                                                                        <textarea class="form-control" id="info" aria-label="With textarea" style="height: 100px;" name=info></textarea>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-body">
+                                                                                <h3 class="card-title m-t-15">
+                                                                                    <center>Thông tin dinh dưỡng</center>
+                                                                                </h3>
+                                                                                <hr>
+                                                                                <div class="row p-t-20">
+                                                                                    <div class="col-md-3">
+                                                                                        <label class="control-label" style="color: blue" ;>Giá trị DD</label>
+                                                                                        <input type="number" id="gt" name="giaTriDinhDuong" class="form-control">
+                                                                                    </div>
+                                                                                    <div class="col-md-3">
+                                                                                        <label class="control-label" style="color: blue" ;>Lipid</label>
+                                                                                        <input type="number" id="lp" name="lipid" class="form-control">
+                                                                                    </div>
+                                                                                    <div class="col-md-3">
+                                                                                        <label class="control-label" style="color: blue" ;>Cholesterol</label>
+                                                                                        <input type="number" id="cl" name="cholesterol" class="form-control">
+                                                                                    </div>
+                                                                                    <div class="col-md-3">
+                                                                                        <label class="control-label" style="color: blue" ;>Natri</label>
+                                                                                        <input type="number" id="nt" name="natri" class="form-control">
+                                                                                    </div>
+                                                                                    <div class="col-md-3">
+                                                                                        <label class="control-label" style="color: blue" ;>Kali</label>
+                                                                                        <input type="number" id="kl" name="kali" class="form-control">
+                                                                                    </div>
+                                                                                    <div class="col-md-3">
+                                                                                        <label class="control-label" style="color: blue" ;>Cabohydrat</label>
+                                                                                        <input type="number" id="cbhr" name="cacbohydrat" class="form-control">
+                                                                                    </div>
+
+                                                                                    <div class="col-md-3">
+                                                                                        <label class="control-label" style="color: blue" ;>Chất xơ</label>
+                                                                                        <input type="number" id="cx" name="chatXo" class="form-control">
+                                                                                    </div>
+                                                                                    <div class="col-md-3">
+                                                                                        <label class="control-label" style="color: blue" ;>Đường</label>
+                                                                                        <input type="number" id="d" name="duong" class="form-control">
+                                                                                    </div>
+                                                                                    <div class="col-md-3">
+                                                                                        <label class="control-label" style="color: blue" ;>Protein</label>
+                                                                                        <input type="number" id="pr" name="protein" class="form-control">
+                                                                                    </div>
+                                                                                    <div class="col-md-3">
+                                                                                        <label class="control-label" style="color: blue" ;>Vitamin A</label>
+                                                                                        <input type="number" id="va" name="vitaminA" class="form-control">
+                                                                                    </div>
+                                                                                    <div class="col-md-3">
+                                                                                        <label class="control-label" style="color: blue" ;>Vitamin C</label>
+                                                                                        <input type="number" id="vc" name="vitaminC" class="form-control">
+                                                                                    </div>
+                                                                                    <div class="col-md-3">
+                                                                                        <label class="control-label" style="color: blue" ;>Vitamin D</label>
+                                                                                        <input type="number" id="vd" name="vitaminD" class="form-control">
+                                                                                    </div>
+                                                                                    <div class="col-md-3">
+                                                                                        <label class="control-label" style="color: blue" ;>Vitamin B12</label>
+                                                                                        <input type="number" id="vb12" name="vitaminB12" class="form-control">
+                                                                                    </div>
+                                                                                    <div class="col-md-3">
+                                                                                        <label class="control-label" style="color: blue" ;>Vitamin B6</label>
+                                                                                        <input type="number" id="vb6" name="vitaminB6" class="form-control">
+                                                                                    </div>
+                                                                                    <div class="col-md-3">
+                                                                                        <label class="control-label" style="color: blue" ;>Canxi</label>
+                                                                                        <input type="number" id="cx" name="canxi" class="form-control">
+                                                                                    </div>
+                                                                                    <div class="col-md-3">
+                                                                                        <label class="control-label" style="color: blue" ;>Sắt</label>
+                                                                                        <input type="number" id="s" name="sat" class="form-control">
+                                                                                    </div>
+                                                                                    <div class="col-md-3">
+                                                                                        <label class="control-label" style="color: blue" ;>Magie</label>
+                                                                                        <input type="number" id="mg" name="magie" class="form-control">
+                                                                                    </div>
+                                                                                    <div class="col-md-6">
+                                                                                        <label class="control-label" style="color: blue" ;>Chất béo chuyển hóa</label>
+                                                                                        <input type="number" id="cbch" name="chatBeoChuyenHoa" class="form-control">
+                                                                                    </div>
+                                                                                    <div class="col-md-3">
+                                                                                        <label class="control-label" style="color: blue" ;>Calo</label>
+                                                                                        <input type="number" id="cl" name="calo" class="form-control">
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-actions">
+                                                                                    <center>
+                                                                                        <button type="submit" class="btn btn-success">
+                                                                                            <i class="fa fa-check"></i> Thêm</button>
+                                                                                        <button type="button" class="btn btn-inverse">Hủy</button>
+                                                                                    </center>
+                                                                                </div>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                            <!-- End PAge Content -->                                            
+                                        </ul>
+                                        <!--End add-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h6 class="card-subtitle">Xuất dữ liệu: Copy, CSV, Excel, PDF & Print</h6>
+                    <div class="table-responsive">
+                        <div id="example23_wrapper" class="dataTables_wrapper">
+                            <table id="example23" class=" table table-bordered" style="font-size:12px;color:black; line-height: normal; text-align: center;">
+                                <thead>
+                                    <tr role="row" style="background-color: #d9f3e9;color: white;">
+                                        <th>STT</th>
+                                        <th>TÊN</th>
+                                        <th>ẢNH</th>
+                                        <th>LOẠI</th>
+                                        <th>THÔNG TIN</th>
+                                        <!-- <th>GTDD</th> -->
+                                        <th>LP</th>
+                                        <th>CHOL</th>
+                                        <!-- <th>Na</th>
+                                        <th>K</th> -->
+                                        <!-- <th>C.HYDRAT</th> -->
+                                        <th>C.XƠ</th>
+                                        <th>ĐƯỜNG</th>
+                                        <th>PRO</th>
+                                        <!-- <th>A</th>
+                                        <th>C</th>
+                                        <th>D</th>
+                                        <th>B12</th> 
+                                        <th>B6</th>
+                                        <th>Ca</th>
+                                        <th>Fe</th>
+                                        <th>Mg</th> -->
+                                        <th>CBCH</th>
+                                        <th>CALO</th>
+                                        <th>SỬA</th>
+                                        <th>XÓA</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% for(var i=0; i<len; i++) {%>
+                                        <tr>
+                                            <th scope="row">
+                                                <%-i+1%>
+                                            </th>
+                                            <td>
+                                                <%-data[i].name%>
+                                            </td>
+                                            <td>
+                                                <img src="/food_img/<%-data[i].anh%>" alt="đang cập nhật" width="60" height="60">
+                                            </td>
+                                            <td>
+                                                <%-data[i].loaiThucPham%>
+                                            </td>
+                                            <td>
+                                                <%-data[i].info%>
+                                            </td>
+                                            <!-- <td>
+                                                <%-data[i].giaTriDinhDuong%>
+                                            </td> -->
+                                            <td>
+                                                <%-data[i].lipid%>
+                                            </td>
+                                            <td>
+                                                <%-data[i].cholesterol%>
+                                            </td>
+                                            <!-- <td>
+                                                <%-data[i].natri%>
+                                            </td> 
+                                            <td>
+                                                <%-data[i].kali%>
+                                            </td> -->
+                                            <!-- <td>
+                                                <%-data[i].cacbohydrat%>
+                                            </td> -->
+                                            <td>
+                                                <%-data[i].chatXo%>
+                                            </td>
+                                            <td>
+                                                <%-data[i].duong%>
+                                            </td>
+                                            <td>
+                                                <%-data[i].protein%>
+                                            </td>
+                                            <!-- <td>
+                                                <%-data[i].vitaminA%>
+                                            </td>
+                                            <td>
+                                                <%-data[i].vitaminC%>
+                                            </td>
+                                            <td>
+                                                <%-data[i].vitaminD%>
+                                            </td>
+                                            <td>
+                                                <%-data[i].vitaminB12%>
+                                            </td>
+                                            <td>
+                                                <%-data[i].vitaminB6%>
+                                            </td>
+                                            <td>
+                                                <%-data[i].canxi%>
+                                            </td>
+                                            <td>
+                                                <%-data[i].sat%>
+                                            </td>
+                                            <td>
+                                                <%-data[i].magie%>
+                                            </td>-->
+                                            <td>
+                                                <%-data[i].chatBeoChuyenHoa%>
+                                            </td>
+                                            <td>
+                                                <%-data[i].calo%>
+                                            </td>
+                                            <td>
+                                                <!--Start edit-->
+                                                <a class="glyphicon glyphicon-add" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <button class="btn btn-primary btn-xs" data-title="SỬA" data-toggle="modal" data-target="#sua">
+                                                        <span class="glyphicon glyphicon-pencil">SỬA</span>
+                                                    </button>
+                                                </a>
+                                                <div class="dropdown-menu animated zoomIn" style="width: 600px;">
+                                                    <ul class="mega-dropdown-menu row">
+                                                        <div class="container-fluid" style="width:600px; height:600px; overflow: auto;">
+                                                            <!-- Start Page Content -->
+                                                            <div class="row">
+                                                                <div class="col-lg-12">
+                                                                    <div class="card card-outline-primary">
+                                                                        <div class="card-header">
+                                                                            <h4 class="m-b-0 text-white">
+                                                                                <center>CHỈNH SỬA THÔNG TIN</center>
+                                                                            </h4>
+                                                                        </div>
+                                                                        <div class="card-body">
+                                                                            <form action="/update_admin_food/<%-data[i]._id%>" method="POST" role="form" enctype="multipart/form-data" >
+                                                                                <div class="form-body">
+                                                                                    <h3 class="card-title m-t-15">
+                                                                                        <center>Thông tin thực phẩm</center>
+                                                                                    </h3>
+                                                                                    <hr>
+                                                                                    <div class="row p-t-20">
+                                                                                        <div class="col-md-6">
+                                                                                            <label class="control-label" style="color: blue;">Tên thực phẩm</label>
+                                                                                            <input type="text" id="name" name="name" class="form-control" value="<%-data[i].name%>" placeholder="">
+                                                                                        </div>
+                                                                                        <div class="col-md-6">
+                                                                                            <label class="control-label" style="color: blue;">Tên tiếng anh</label>
+                                                                                            <input type="text" id="enname" name="en_name" class="form-control" value="<%-data[i].en_name%>" placeholder="">
+                                                                                        </div>
+                                                                                        <div class="col-md-12">
+                                                                                            <label class="control-label" style="color: blue;">Loại thực phẩm</label>
+                                                                                            <input type="text" id="namesd" name="loaiThucPham" class="form-control" value="<%-data[i].loaiThucPham%>" placeholder="">
+                                                                                        </div>
+                                                                                        <div class="col-md-12">                                                                                               
+                                                                                            <label class="control-label" style="color: blue;">Ảnh đại diện</label>
+                                                                                            <div class="custom-file">
+                                                                                                <input type="file" name="anh" onchange="readURLanh(this)" value="/food_img/<%-data[i].anh%>" class="custom-file-input"
+                                                                                                    id="customFile1">
+                                                                                                <label class="custom-file-label" for="customFile1">Chọn ảnh</label>
+                                                                                            </div>
+                                                                                            <img id="anh<%-i%>" src="/food_img/<%-data[i].anh%>" alt="no display" />
+                                                                                            <script>
+                                                                                                function readURLanh(
+                                                                                                    input) {
+                                                                                                    if (input.files &&
+                                                                                                        input.files[
+                                                                                                            0]) {
+                                                                                                        var reader =
+                                                                                                            new FileReader();
+                                                                                                        reader.onload =
+                                                                                                            function (
+                                                                                                                e) {
+                                                                                                                $(
+                                                                                                                        '#anh<%-i%>'
+                                                                                                                    )
+                                                                                                                    .attr(
+                                                                                                                        'src',
+                                                                                                                        e
+                                                                                                                        .target
+                                                                                                                        .result
+                                                                                                                    )
+                                                                                                                    .width(
+                                                                                                                        60
+                                                                                                                    )
+                                                                                                                    .height(
+                                                                                                                        80
+                                                                                                                    );
+                                                                                                            };
+                                                                                                        reader.readAsDataURL(
+                                                                                                            input
+                                                                                                            .files[
+                                                                                                                0
+                                                                                                            ]);
+                                                                                                    }
+                                                                                                }
+                                                                                            </script>                                                                                           
+                                                                                        </div>
+                                                                                        <div class="col-md-12">
+                                                                                            <label class="control-label" style="color: blue;">Thông tin thực phẩm</label>
+                                                                                            <textarea class="form-control" id="info1" aria-label="With textarea" style="height: 100px;" name="info" value="<%-data[i].info%>">
+                                                                                                <%-data[i].info%>
+                                                                                            </textarea>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="form-body">
+                                                                                    <h3 class="card-title m-t-15">
+                                                                                        <center>Thông tin dinh dưỡng</center>
+                                                                                    </h3>
+                                                                                    <hr>
+                                                                                    <div class="row p-t-20">
+                                                                                        <div class="col-md-3">
+                                                                                            <label class="control-label" style="color: blue">Giá trị DD</label>
+                                                                                            <input type="number" id="gt1" name="giaTriDinhDuong" class="form-control" value="<%-data[i].giaTriDinhDuong%>">
+                                                                                        </div>
+                                                                                        <div class="col-md-3">
+                                                                                            <label class="control-label" style="color: blue">Lipid</label>
+                                                                                            <input type="number" id="lp1" name="lipid" class="form-control" value="<%-data[i].lipid%>">
+                                                                                        </div>
+                                                                                        <div class="col-md-3">
+                                                                                            <label class="control-label" style="color: blue">Cholesterol</label>
+                                                                                            <input type="number" id="cl1" name="cholesterol" class="form-control" value="<%-data[i].cholesterol%>">
+                                                                                        </div>
+                                                                                        <div class="col-md-3">
+                                                                                            <label class="control-label" style="color: blue">Natri</label>
+                                                                                            <input type="number" id="nt1" name="natri" class="form-control" value="<%-data[i].natri%>">
+                                                                                        </div>
+                                                                                        <div class="col-md-3">
+                                                                                            <label class="control-label" style="color: blue">Kali</label>
+                                                                                            <input type="number" id="kl1" name="kali" class="form-control" value="<%-data[i].kali%>">
+                                                                                        </div>
+                                                                                        <div class="col-md-3">
+                                                                                            <label class="control-label" style="color: blue">Cabohydrat</label>
+                                                                                            <input type="number" id="cbhr1" name="cacbohydrat" class="form-control" value="<%-data[i].cacbohydrat%>">
+                                                                                        </div>
+
+                                                                                        <div class="col-md-3">
+                                                                                            <label class="control-label" style="color: blue">Chất xơ</label>
+                                                                                            <input type="number" id="cx1" name="chatXo" class="form-control" value="<%-data[i].chatXo%>">
+                                                                                        </div>
+                                                                                        <div class="col-md-3">
+                                                                                            <label class="control-label" style="color: blue">Đường</label>
+                                                                                            <input type="number" id="d1" name="duong" class="form-control" value="<%-data[i].duong%>">
+                                                                                        </div>
+                                                                                        <div class="col-md-3">
+                                                                                            <label class="control-label" style="color: blue">Protein</label>
+                                                                                            <input type="number" id="pr1" name="protein" class="form-control" value="<%-data[i].protein%>">
+                                                                                        </div>
+                                                                                        <div class="col-md-3">
+                                                                                            <label class="control-label" style="color: blue">Vitamin A</label>
+                                                                                            <input type="number" id="va1" name="vitaminA" class="form-control" value="<%-data[i].vitaminA%>">
+                                                                                        </div>
+                                                                                        <div class="col-md-3">
+                                                                                            <label class="control-label" style="color: blue">Vitamin C</label>
+                                                                                            <input type="number" id="vc1" name="vitaminC" class="form-control" value="<%-data[i].vitaminC%>">
+                                                                                        </div>
+                                                                                        <div class="col-md-3">
+                                                                                            <label class="control-label" style="color: blue">Vitamin D</label>
+                                                                                            <input type="number" id="vd1" name="vitaminD" class="form-control" value="<%-data[i].vitaminD%>">
+                                                                                        </div>
+                                                                                        <div class="col-md-3">
+                                                                                            <label class="control-label" style="color: blue">Vitamin B12</label>
+                                                                                            <input type="number" id="vb121" name="vitaminB12" class="form-control" value="<%-data[i].vitaminB12%>">
+                                                                                        </div>
+                                                                                        <div class="col-md-3">
+                                                                                            <label class="control-label" style="color: blue">Vitamin B6</label>
+                                                                                            <input type="number" id="vb61" name="vitaminB6" class="form-control" value="<%-data[i].vitaminB6%>">
+                                                                                        </div>
+                                                                                        <div class="col-md-3">
+                                                                                            <label class="control-label" style="color: blue">Canxi</label>
+                                                                                            <input type="number" id="cx1" name="canxi" class="form-control" value="<%-data[i].canxi%>">
+                                                                                        </div>
+                                                                                        <div class="col-md-3">
+                                                                                            <label class="control-label" style="color: blue">Sắt</label>
+                                                                                            <input type="number" id="s1" name="sat" class="form-control" value="<%-data[i].sat%>">
+                                                                                        </div>
+                                                                                        <div class="col-md-3">
+                                                                                            <label class="control-label" style="color: blue">Magie</label>
+                                                                                            <input type="number" id="mg1" name="magie" class="form-control" value="<%-data[i].magie%>">
+                                                                                        </div>
+                                                                                        <div class="col-md-6">
+                                                                                            <label class="control-label" style="color: blue">Chất béo chuyển hóa</label>
+                                                                                            <input type="number" id="cbch1" name="chatBeoChuyenHoa" class="form-control" value="<%-data[i].chatBeoChuyenHoa%>">
+                                                                                        </div>
+                                                                                        <div class="col-md-3">
+                                                                                            <label class="control-label" style="color: blue">Calo</label>
+                                                                                            <input type="number" id="cl1" name="calo" class="form-control" value="<%-data[i].calo%>">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="form-actions">
+                                                                                    <center>
+                                                                                        <button type="submit" class="btn btn-success">
+                                                                                            <i class="fa fa-check"></i> Lưu thay đổi</button>
+                                                                                        <button type="button" class="btn btn-inverse">Hủy</button>
+                                                                                    </center>
+                                                                                </div>
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- End PAge Content -->
+                                                    </ul>
+                                                </div>
+                                                <!--End edit-->
+                                            </td>
+                                            <td>
+                                                <!-- Start delete -->
+                                                <a href="/del_admin_food/<%-data[i]._id%>" class="btn btn-danger btn-xs">
+                                                    <span class="glyphicon glyphicon-trash">XÓA</span>
+                                                </a>                                              
+                                                <!-- End delete -->
+                                            </td>
+                                        </tr>
+                                        <% } %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End PAge Content -->
+    </div>
+    <!-- End Container fluid  -->
+    <!-- footer -->
+    <footer class="footer"> @onlyForBasicReport</footer>
+    <!-- End footer -->
+    </div>
+    <!-- End Page wrapper  -->
+    </div>
+    <!-- End Wrapper -->
+    <!-- All Jquery -->
+    <script src="/js_jquery/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="/js_jsbt/popper.min.js"></script>
+    <script src="/js_jsbt/bootstrap.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="/js/jquery.slimscroll.js"></script>
+    <!--Menu sidebar -->
+    <script src="/js/sidebarmenu.js"></script>
+    <!--stickey kit -->
+    <script src="/js_sticky/sticky-kit.min.js"></script>
+    <!--Custom JavaScript -->
+    <script src="/js/custom.min.js"></script>
+    <script src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.flash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
+    <script src="/js_datatables/datatables-init.js"></script>
+</body>
+</html>
